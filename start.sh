@@ -1,0 +1,16 @@
+qemu-system-aarch64 -m 8192 \
+-cpu cortex-a57 \
+-smp 8 \
+-M virt \
+-device ramfb \
+-device qemu-xhci \
+-device usb-kbd \
+-device usb-tablet \
+-nic user,model=virtio \
+-rtc base=localtime,clock=host \
+-bios /opt/homebrew/share/qemu/edk2-aarch64-code.fd \
+-drive if=none,file=/Users/xxmyjk/Desktop/centos-8/CentOS-8.4.2105-aarch64-dvd1.iso,id=cdrom,media=cdrom \
+-device virtio-scsi-device \
+-device scsi-cd,drive=cdrom \
+-drive if=none,file=/Users/xxmyjk/Desktop/centos-8/centos-8.4.img,id=hd0 \
+-device virtio-blk-device,drive=hd0
